@@ -1,27 +1,18 @@
 const rightEmail = "";
 const rightPassword = "";
 
-const form = document.querySelector(".login-form");
+const loginForm = document.querySelector(".login-form");
+loginForm.addEventListener("submit", event => {
+    event.preventDefault();
+    const emailValue = loginForm.elements.email.value;
+    const passwordValue = loginForm.elements.password.value;
 
-const emailInputRequired = form.firstElementChild.firstElementChild.setAttribute(
-  "required",
-  "@"
-);
-
-const passwordInputRequired = form.lastElementChild.previousElementSibling.firstElementChild.setAttribute(
-  "required",
-  " "
-);
-form.addEventListener('submit', onFormSubmit);
-
-function onFormSubmit(event) {
-  event.preventDefault();
-  const formElements = event.currentTarget.elements;
-
-  const mail = formElements.email.value;
-  const password = formElements.password.value;
-  const formData = {
-    mail, password
-  }
-  console.log(formData);
-}
+    if(emailValue !== rightEmail && passwordValue !== rightPassword ) {
+      return console.log({
+        elementsEmail: emailValue,
+        elementsPassword: passwordValue,
+      });
+    } else if (emailValue == "" || passwordValue == "") {
+        alert("Fill up all the forms!")
+    }
+});
