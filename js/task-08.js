@@ -7,12 +7,13 @@ loginForm.addEventListener("submit", event => {
     const emailValue = loginForm.elements.email.value;
     const passwordValue = loginForm.elements.password.value;
 
-    if(emailValue !== rightEmail && passwordValue !== rightPassword ) {
+    if (emailValue !== rightEmail && passwordValue !== rightPassword) {
       return console.log({
         elementsEmail: emailValue,
         elementsPassword: passwordValue,
       });
     } else if (emailValue == "" || passwordValue == "") {
-        alert("Fill up all the forms!")
+        alert("Fill up all the forms!")   
+        loginForm.reset();
     }
 });
